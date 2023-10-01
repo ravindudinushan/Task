@@ -2,51 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Task One</title>
-    <link rel="stylesheet" href="../../asets/css/bootstrap.css">
+    <title>Task Two</title>
+    <link rel="stylesheet" href="assets/styles/bootstrap-5.3.2/css/bootstrap.css">
 </head>
 <body>
-<section class="container mt-3">
-    <section class="row">
 
-        <!--Case Two-->
-        <div class="col">
-            <h1>Input an Image Url</h1>
-            <input id="url" class="form-control" type="url" placeholder="Input Image URL">
-            <div id="img" style="height: 50vh" class="mt-2 border shadow"></div>
-            <button id="btn2" class="mt-2 btn btn-danger">Change Image</button>
+<section class="container">
+    <h1>Task Generator.!</h1>
+    <div class="row">
+        <div class="col-4">
+            <input id="txt" class="form-control" type="text" placeholder="Input a Task">
+            <button id="btn" class="btn btn-danger mt-2">Add Task</button>
         </div>
-    </section>
+        <div class="offset-1 col-3 shadow overflow-x-hidden" style="height: 70vh">
+            <ol id="list" class="list-group p-2">
+                <li class="list-group-item">Task One</li>
+            </ol>
+        </div>
+    </div>
 </section>
 
+
+
 <script>
-    //Case One
     //Bind an event for Change Text Btn
     //Get Input Text Value
-    //Assign it to H1 text
-    //Change the color of h1 to red
-    //Change font size t0 4em
+    //Create a list element
+    //Add it to the Ordered List
 
+    document.querySelector("#btn").addEventListener("click",function () {
+        var value = document.querySelector("#txt").value;
+        const listItem = document.createElement("li");
+        listItem.className = "list-group-item";
+        listItem.textContent = value;
+        document.querySelector("#list").appendChild(listItem);
+        document.querySelector("#txt").value = "";
 
-    //Case Two
-    //Bind an event for Change Image Btn
-    //Get Input URL Value
-    //Assign it to the Image src
-    document.querySelector("#btn2").addEventListener("click",function (){
-        document.querySelector("#img").style.backgroundImage=`url('${document.querySelector("#url").value}')`;
-        document.querySelector("#img").style.backgroundPosition='center';
-        document.querySelector("#img").style.backgroundSize='cover';
-    });
+    })
 
 </script>
 </body>
 </html>
-
-
-
-document.querySelector("input").addEventListener("keyup",function(){
-    document.querySelector("h1").innerText=document.querySelector('input').value;
-});
-document.querySelector("button").addEventListener("click",function(){
-    document.querySelector("h1").style.color='red';
-});
