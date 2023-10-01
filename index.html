@@ -8,11 +8,13 @@
 <body>
 <section class="container mt-3">
     <section class="row">
-        <!--Case One-->
+
+        <!--Case Two-->
         <div class="col">
-            <h1>Hello There How are you.?</h1>
-            <input id="txt" class="form-control" type="text" placeholder="Input Something">
-            <button id="btn1" class="mt-2 btn btn-danger">Change Text</button>
+            <h1>Input an Image Url</h1>
+            <input id="url" class="form-control" type="url" placeholder="Input Image URL">
+            <div id="img" style="height: 50vh" class="mt-2 border shadow"></div>
+            <button id="btn2" class="mt-2 btn btn-danger">Change Image</button>
         </div>
     </section>
 </section>
@@ -26,19 +28,25 @@
     //Change font size t0 4em
 
 
-    document.querySelector("input").addEventListener("keyup",function(){
-        document.querySelector("h1").innerText=document.querySelector('input').value;
-    });
-    document.querySelector("button").addEventListener("click",function(){
-        document.querySelector("h1").style.color='red';
-    });
-
     //Case Two
     //Bind an event for Change Image Btn
     //Get Input URL Value
     //Assign it to the Image src
-
+    document.querySelector("#btn2").addEventListener("click",function (){
+        document.querySelector("#img").style.backgroundImage=`url('${document.querySelector("#url").value}')`;
+        document.querySelector("#img").style.backgroundPosition='center';
+        document.querySelector("#img").style.backgroundSize='cover';
+    });
 
 </script>
 </body>
 </html>
+
+
+
+document.querySelector("input").addEventListener("keyup",function(){
+    document.querySelector("h1").innerText=document.querySelector('input').value;
+});
+document.querySelector("button").addEventListener("click",function(){
+    document.querySelector("h1").style.color='red';
+});
